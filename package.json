@@ -1,0 +1,129 @@
+{
+  "name": "toc-toc-seo-images",
+  "version": "3.6.0",
+  "description": "WordPress plugin for intelligent image optimization with AI-powered metadata generation and compression",
+  "main": "assets/js/admin-batch.js",
+  "scripts": {
+    "build": "webpack --mode=production",
+    "dev": "webpack --mode=development --watch",
+    "build:css": "sass assets/sass/admin-styles.scss assets/css/admin-styles.css --style=compressed",
+    "dev:css": "sass assets/sass/admin-styles.scss assets/css/admin-styles.css --watch",
+    "lint:js": "eslint assets/js/**/*.js",
+    "lint:css": "stylelint assets/sass/**/*.scss",
+    "format": "prettier --write assets/js/**/*.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "analyze": "webpack-bundle-analyzer dist/stats.json",
+    "clean": "rimraf dist/",
+    "zip": "npm run build && zip -r mi-renombrador-imagenes-v3.6.0.zip . -x 'node_modules/*' 'src/*' '.git/*' '*.log'",
+    "version:patch": "npm version patch && git push && git push --tags",
+    "version:minor": "npm version minor && git push && git push --tags",
+    "version:major": "npm version major && git push && git push --tags"
+  },
+  "keywords": [
+    "wordpress",
+    "plugin",
+    "seo",
+    "images",
+    "optimization",
+    "ai",
+    "gemini",
+    "compression",
+    "metadata",
+    "alt-text",
+    "image-processing"
+  ],
+  "author": "Toc Toc Marketing <info@toctoc.ky> (https://toctoc.ky/)",
+  "license": "GPL-2.0-or-later",
+  "homepage": "https://toctoc.ky/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/toc-toc-marketing/seo-images-plugin.git"
+  },
+  "bugs": {
+    "url": "https://github.com/toc-toc-marketing/seo-images-plugin/issues"
+  },
+  "engines": {
+    "node": ">=14.0.0",
+    "npm": ">=6.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead",
+    "not ie 11"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.23.0",
+    "@wordpress/eslint-plugin": "^17.0.0",
+    "babel-loader": "^9.1.0",
+    "css-loader": "^6.8.0",
+    "eslint": "^8.50.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "jest": "^29.7.0",
+    "mini-css-extract-plugin": "^2.7.0",
+    "prettier": "^3.0.0",
+    "rimraf": "^5.0.0",
+    "sass": "^1.69.0",
+    "sass-loader": "^13.3.0",
+    "stylelint": "^15.10.0",
+    "stylelint-config-standard-scss": "^11.0.0",
+    "webpack": "^5.88.0",
+    "webpack-bundle-analyzer": "^4.9.0",
+    "webpack-cli": "^5.1.0"
+  },
+  "dependencies": {
+    "jquery": "^3.7.1"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": ["<rootDir>/tests/js/setup.js"],
+    "testMatch": [
+      "<rootDir>/tests/js/**/*.test.js"
+    ],
+    "collectCoverageFrom": [
+      "assets/js/**/*.js",
+      "!assets/js/**/*.min.js"
+    ],
+    "coverageDirectory": "tests/coverage",
+    "coverageReporters": ["text", "lcov", "html"]
+  },
+  "eslintConfig": {
+    "extends": [
+      "@wordpress/eslint-plugin/recommended",
+      "prettier"
+    ],
+    "plugins": ["prettier"],
+    "rules": {
+      "prettier/prettier": "error",
+      "@wordpress/no-global-active-element": "off",
+      "@wordpress/no-global-get-selection": "off"
+    },
+    "globals": {
+      "jQuery": "readonly",
+      "$": "readonly",
+      "wp": "readonly",
+      "ajaxurl": "readonly",
+      "mri_bulk_params": "readonly"
+    }
+  },
+  "stylelint": {
+    "extends": "stylelint-config-standard-scss",
+    "rules": {
+      "selector-class-pattern": "^mri-[a-z0-9-]+$",
+      "custom-property-pattern": "^mri-[a-z0-9-]+$"
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "tabWidth": 2,
+    "useTabs": false,
+    "semi": true,
+    "trailingComma": "es5",
+    "bracketSpacing": true,
+    "jsxBracketSameLine": false,
+    "printWidth": 100
+  }
+}

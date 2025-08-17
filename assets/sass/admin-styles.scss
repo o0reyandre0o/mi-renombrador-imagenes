@@ -1,0 +1,481 @@
+/**
+ * Admin Styles for Toc Toc SEO Images Plugin
+ * Version: 3.6.0
+ */
+
+// Variables
+:root {
+  --mri-primary-color: #2271b1;
+  --mri-primary-hover: #135e96;
+  --mri-success-color: #00a32a;
+  --mri-warning-color: #dba617;
+  --mri-error-color: #d63638;
+  --mri-info-color: #72aee6;
+  --mri-border-radius: 4px;
+  --mri-spacing-xs: 4px;
+  --mri-spacing-sm: 8px;
+  --mri-spacing-md: 16px;
+  --mri-spacing-lg: 24px;
+  --mri-spacing-xl: 32px;
+  --mri-font-size-sm: 12px;
+  --mri-font-size-md: 14px;
+  --mri-font-size-lg: 16px;
+  --mri-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --mri-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+// Base styles for plugin pages
+.mri-admin-page {
+  .wrap {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--mri-spacing-lg);
+  }
+
+  h1 {
+    color: #1d2327;
+    font-size: 23px;
+    font-weight: 400;
+    margin: 0 0 var(--mri-spacing-lg) 0;
+    
+    &::before {
+      content: "🖼️";
+      margin-right: var(--mri-spacing-sm);
+    }
+  }
+
+  h2 {
+    color: #1d2327;
+    font-size: 18px;
+    font-weight: 600;
+    margin: var(--mri-spacing-xl) 0 var(--mri-spacing-md) 0;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: var(--mri-spacing-sm);
+  }
+}
+
+// Settings page specific styles
+.mri-settings-section {
+  background: #fff;
+  border: 1px solid #c3c4c7;
+  border-radius: var(--mri-border-radius);
+  margin-bottom: var(--mri-spacing-lg);
+  padding: var(--mri-spacing-lg);
+  box-shadow: var(--mri-shadow-sm);
+
+  .section-title {
+    margin-top: 0;
+    color: var(--mri-primary-color);
+    font-size: var(--mri-font-size-lg);
+    font-weight: 600;
+  }
+
+  .section-description {
+    color: #646970;
+    font-style: italic;
+    margin-bottom: var(--mri-spacing-md);
+  }
+
+  .form-table {
+    th {
+      font-weight: 600;
+      color: #1d2327;
+      padding: var(--mri-spacing-md) var(--mri-spacing-sm) var(--mri-spacing-md) 0;
+    }
+
+    td {
+      padding: var(--mri-spacing-md) 0;
+    }
+
+    .description {
+      color: #646970;
+      font-size: var(--mri-font-size-sm);
+      font-style: italic;
+      margin-top: var(--mri-spacing-xs);
+    }
+  }
+}
+
+// Bulk processing page styles
+#mri-bulk-wrap {
+  .mri-bulk-section {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: var(--mri-border-radius);
+    margin-bottom: var(--mri-spacing-lg);
+    padding: var(--mri-spacing-lg);
+    box-shadow: var(--mri-shadow-sm);
+
+    h3 {
+      margin-top: 0;
+      color: var(--mri-primary-color);
+    }
+  }
+
+  #mri-bulk-options {
+    label {
+      display: flex;
+      align-items: center;
+      font-weight: 600;
+      color: #1d2327;
+
+      input[type="checkbox"] {
+        margin-right: var(--mri-spacing-sm);
+        transform: scale(1.2);
+      }
+    }
+
+    small {
+      display: block;
+      color: #646970;
+      margin-top: var(--mri-spacing-sm);
+      margin-left: var(--mri-spacing-lg);
+      font-style: italic;
+    }
+  }
+
+  #mri-bulk-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--mri-spacing-md);
+    margin: var(--mri-spacing-lg) 0;
+
+    .button-primary {
+      background: var(--mri-primary-color);
+      border-color: var(--mri-primary-color);
+      font-weight: 600;
+      padding: 8px 16px;
+      
+      &:hover {
+        background: var(--mri-primary-hover);
+        border-color: var(--mri-primary-hover);
+      }
+
+      &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+    }
+
+    .spinner {
+      &.is-active {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+  }
+
+  #mri-bulk-progress {
+    .progress-container {
+      background: #f6f7f7;
+      border: 1px solid #c3c4c7;
+      border-radius: var(--mri-border-radius);
+      padding: var(--mri-spacing-md);
+
+      label {
+        font-weight: 600;
+        color: #1d2327;
+        margin-bottom: var(--mri-spacing-sm);
+      }
+
+      progress {
+        width: 100%;
+        height: 25px;
+        border-radius: var(--mri-border-radius);
+        appearance: none;
+
+        &::-webkit-progress-bar {
+          background-color: #f0f0f1;
+          border-radius: var(--mri-border-radius);
+        }
+
+        &::-webkit-progress-value {
+          background: linear-gradient(90deg, var(--mri-primary-color), var(--mri-success-color));
+          border-radius: var(--mri-border-radius);
+          transition: width 0.3s ease;
+        }
+
+        &::-moz-progress-bar {
+          background: linear-gradient(90deg, var(--mri-primary-color), var(--mri-success-color));
+          border-radius: var(--mri-border-radius);
+        }
+      }
+
+      #mri-progress-text {
+        text-align: center;
+        font-weight: 600;
+        font-size: var(--mri-font-size-lg);
+        color: #1d2327;
+        margin: var(--mri-spacing-sm) 0 0 0;
+      }
+    }
+  }
+
+  #mri-bulk-log {
+    background: #f6f7f7;
+    border: 1px solid #c3c4c7;
+    border-radius: var(--mri-border-radius);
+    padding: var(--mri-spacing-md);
+
+    h4 {
+      margin: 0 0 var(--mri-spacing-md) 0;
+      color: #1d2327;
+      font-weight: 600;
+    }
+
+    #mri-log-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+      font-size: var(--mri-font-size-sm);
+      line-height: 1.6;
+
+      li {
+        margin-bottom: var(--mri-spacing-xs);
+        padding: var(--mri-spacing-xs) var(--mri-spacing-sm);
+        border-radius: var(--mri-border-radius);
+        border-left: 4px solid #ddd;
+
+        strong {
+          font-weight: 600;
+        }
+
+        &.mri-log-success {
+          background: rgba(0, 163, 42, 0.1);
+          border-left-color: var(--mri-success-color);
+          color: #0f5132;
+        }
+
+        &.mri-log-error {
+          background: rgba(214, 54, 56, 0.1);
+          border-left-color: var(--mri-error-color);
+          color: #721c24;
+        }
+
+        &.mri-log-notice {
+          background: rgba(219, 166, 23, 0.1);
+          border-left-color: var(--mri-warning-color);
+          color: #8a6914;
+        }
+
+        &.mri-log-info {
+          background: rgba(114, 174, 230, 0.1);
+          border-left-color: var(--mri-info-color);
+          color: #0c4a6e;
+        }
+      }
+    }
+  }
+}
+
+// Notice/Alert styles
+.mri-notice {
+  display: flex;
+  align-items: center;
+  padding: var(--mri-spacing-md);
+  margin: var(--mri-spacing-md) 0;
+  border-left: 4px solid;
+  border-radius: var(--mri-border-radius);
+  box-shadow: var(--mri-shadow-sm);
+
+  &::before {
+    font-size: 20px;
+    margin-right: var(--mri-spacing-sm);
+  }
+
+  &.notice-success {
+    background: rgba(0, 163, 42, 0.1);
+    border-left-color: var(--mri-success-color);
+    color: #0f5132;
+
+    &::before {
+      content: "✅";
+    }
+  }
+
+  &.notice-error {
+    background: rgba(214, 54, 56, 0.1);
+    border-left-color: var(--mri-error-color);
+    color: #721c24;
+
+    &::before {
+      content: "❌";
+    }
+  }
+
+  &.notice-warning {
+    background: rgba(219, 166, 23, 0.1);
+    border-left-color: var(--mri-warning-color);
+    color: #8a6914;
+
+    &::before {
+      content: "⚠️";
+    }
+  }
+
+  &.notice-info {
+    background: rgba(114, 174, 230, 0.1);
+    border-left-color: var(--mri-info-color);
+    color: #0c4a6e;
+
+    &::before {
+      content: "ℹ️";
+    }
+  }
+}
+
+// Form field enhancements
+.mri-form-field {
+  &.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: var(--mri-spacing-sm);
+  }
+
+  &.field-inline {
+    display: flex;
+    align-items: center;
+    gap: var(--mri-spacing-sm);
+  }
+
+  label {
+    font-weight: 600;
+    color: #1d2327;
+  }
+
+  input[type="text"],
+  input[type="password"],
+  input[type="number"],
+  select {
+    border: 1px solid #8c8f94;
+    border-radius: var(--mri-border-radius);
+    padding: 6px 8px;
+    font-size: var(--mri-font-size-md);
+    transition: border-color 0.2s ease;
+
+    &:focus {
+      border-color: var(--mri-primary-color);
+      box-shadow: 0 0 0 1px var(--mri-primary-color);
+      outline: none;
+    }
+  }
+
+  .field-description {
+    color: #646970;
+    font-size: var(--mri-font-size-sm);
+    font-style: italic;
+    margin-top: var(--mri-spacing-xs);
+  }
+}
+
+// Statistics and metrics
+.mri-stats-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--mri-spacing-md);
+  margin: var(--mri-spacing-lg) 0;
+
+  .stat-card {
+    background: #fff;
+    border: 1px solid #c3c4c7;
+    border-radius: var(--mri-border-radius);
+    padding: var(--mri-spacing-md);
+    text-align: center;
+    box-shadow: var(--mri-shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--mri-shadow-md);
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--mri-primary-color);
+      display: block;
+    }
+
+    .stat-label {
+      color: #646970;
+      font-size: var(--mri-font-size-sm);
+      margin-top: var(--mri-spacing-xs);
+    }
+
+    .stat-icon {
+      font-size: 24px;
+      margin-bottom: var(--mri-spacing-sm);
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .mri-admin-page .wrap {
+    padding: var(--mri-spacing-md);
+  }
+
+  #mri-bulk-controls {
+    flex-direction: column;
+    align-items: stretch;
+
+    .button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  .mri-stats-container {
+    grid-template-columns: 1fr;
+  }
+
+  .mri-form-field.field-inline {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+// Animation utilities
+@keyframes mri-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes mri-slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mri-animate-pulse {
+  animation: mri-pulse 2s infinite;
+}
+
+.mri-animate-slideDown {
+  animation: mri-slideDown 0.3s ease-out;
+}
+
+// Utility classes
+.mri-text-center { text-align: center; }
+.mri-text-right { text-align: right; }
+.mri-mb-0 { margin-bottom: 0; }
+.mri-mb-sm { margin-bottom: var(--mri-spacing-sm); }
+.mri-mb-md { margin-bottom: var(--mri-spacing-md); }
+.mri-mb-lg { margin-bottom: var(--mri-spacing-lg); }
+.mri-mt-0 { margin-top: 0; }
+.mri-mt-sm { margin-top: var(--mri-spacing-sm); }
+.mri-mt-md { margin-top: var(--mri-spacing-md); }
+.mri-mt-lg { margin-top: var(--mri-spacing-lg); }
+
+.mri-hidden { display: none !important; }
+.mri-visible { display: block !important; }

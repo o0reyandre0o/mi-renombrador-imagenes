@@ -1,0 +1,79 @@
+{
+    "name": "toc-toc-marketing/seo-images-plugin",
+    "description": "WordPress plugin for intelligent image optimization with AI-powered metadata generation and compression",
+    "type": "wordpress-plugin",
+    "version": "3.6.0",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "Toc Toc Marketing",
+            "homepage": "https://toctoc.ky/"
+        }
+    ],
+    "keywords": [
+        "wordpress",
+        "seo",
+        "images",
+        "optimization",
+        "ai",
+        "gemini",
+        "compression",
+        "metadata"
+    ],
+    "homepage": "https://toctoc.ky/",
+    "support": {
+        "issues": "https://github.com/toc-toc-marketing/seo-images-plugin/issues",
+        "source": "https://github.com/toc-toc-marketing/seo-images-plugin"
+    },
+    "require": {
+        "php": ">=7.4",
+        "composer/installers": "^1.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.0",
+        "squizlabs/php_codesniffer": "^3.5",
+        "wp-coding-standards/wpcs": "^2.3",
+        "phpcompatibility/phpcompatibility-wp": "^2.1",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
+        "roave/security-advisories": "dev-master"
+    },
+    "autoload": {
+        "psr-4": {
+            "TocTocMarketing\\SEOImages\\": "includes/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TocTocMarketing\\SEOImages\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "lint": "phpcs",
+        "lint:fix": "phpcbf",
+        "test": "phpunit",
+        "test:coverage": "phpunit --coverage-html coverage",
+        "check": [
+            "@lint",
+            "@test"
+        ],
+        "post-install-cmd": [
+            "@setup-coding-standards"
+        ],
+        "post-update-cmd": [
+            "@setup-coding-standards"
+        ],
+        "setup-coding-standards": [
+            "phpcs --config-set installed_paths vendor/wp-coding-standards/wpcs,vendor/phpcompatibility/phpcompatibility-wp"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "composer/installers": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
+        }
+    },
+    "extra": {
+        "installer-name": "mi-renombrador-imagenes"
+    }
+}

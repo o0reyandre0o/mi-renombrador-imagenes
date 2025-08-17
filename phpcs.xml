@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<ruleset name="Toc Toc SEO Images Plugin Coding Standards">
+    <description>Coding standards for Toc Toc SEO Images WordPress Plugin</description>
+
+    <!-- Files to check -->
+    <file>.</file>
+
+    <!-- Exclude specific directories -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/assets/build/*</exclude-pattern>
+    <exclude-pattern>*/tests/coverage/*</exclude-pattern>
+    <exclude-pattern>*/languages/*</exclude-pattern>
+    <exclude-pattern>*.min.js</exclude-pattern>
+    <exclude-pattern>*.min.css</exclude-pattern>
+
+    <!-- Include WordPress Coding Standards -->
+    <rule ref="WordPress">
+        <!-- Exclude specific rules that might be too strict for this project -->
+        <exclude name="WordPress.Files.FileName.InvalidClassFileName"/>
+        <exclude name="WordPress.Files.FileName.NotHyphenatedLowercase"/>
+        
+        <!-- Allow short array syntax -->
+        <exclude name="Generic.Arrays.DisallowShortArraySyntax"/>
+        
+        <!-- Allow short ternary operator -->
+        <exclude name="WordPress.PHP.DisallowShortTernary"/>
+    </rule>
+
+    <!-- Include WordPress VIP Coding Standards for security -->
+    <rule ref="WordPress-VIP-Go">
+        <!-- Exclude rules that don't apply to regular plugins -->
+        <exclude name="WordPressVIPMinimum.Functions.RestrictedFunctions.wp_remote_get_wp_remote_get"/>
+        <exclude name="WordPressVIPMinimum.Performance.WPQueryParams.PostNotIn_exclude"/>
+    </rule>
+
+    <!-- Include PHP Compatibility checks -->
+    <rule ref="PHPCompatibilityWP"/>
+
+    <!-- Set minimum PHP version -->
+    <config name="testVersion" value="7.4-"/>
+
+    <!-- Set text domain for translation checks -->
+    <rule ref="WordPress.WP.I18n">
+        <properties>
+            <property name="text_domain" type="array">
+                <element value="mi-renombrador-imagenes"/>
+            </properties>
+        </rule>
+
+    <!-- Allow plugin file header format -->
+    <rule ref="Squiz.Commenting.FileComment">
+        <exclude name="Squiz.Commenting.FileComment.Missing"/>
+        <exclude name="Squiz.Commenting.FileComment.MissingPackageTag"/>
+    </rule>
+
+    <!-- Check for WordPress nonces and input sanitization -->
+    <rule ref="WordPress.Security.NonceVerification"/>
+    <rule ref="WordPress.Security.ValidatedSanitizedInput"/>
+    <rule ref="WordPress.Security.EscapeOutput"/>
+
+    <!-- Database queries should be prepared -->
+    <rule ref="WordPress.DB.PreparedSQL"/>
+    <rule ref="WordPress.DB.DirectDatabaseQuery"/>
+
+    <!-- Discourage use of deprecated WordPress functions -->
+    <rule ref="WordPress.WP.DeprecatedFunctions"/>
+
+    <!-- Check for proper prefix usage -->
+    <rule ref="WordPress.NamingConventions.PrefixAllGlobals">
+        <properties>
+            <property name="prefixes" type="array">
+                <element value="mri_"/>
+                <element value="MRI_"/>
+                <element value="TocTocMarketing"/>
+            </property>
+        </properties>
+    </rule>
+
+    <!-- Encourage use of WordPress functions instead of PHP functions -->
+    <rule ref="WordPress.WP.AlternativeFunctions"/>
+
+    <!-- Check for proper hook usage -->
+    <rule ref="WordPress.NamingConventions.ValidHookName"/>
+
+    <!-- Set maximum line length -->
+    <rule ref="Generic.Files.LineLength">
+        <properties>
+            <property name="lineLimit" value="120"/>
+            <property name="absoluteLineLimit" value="150"/>
+        </properties>
+    </rule>
+
+    <!-- Check for proper indentation -->
+    <rule ref="Generic.WhiteSpace.ScopeIndent">
+        <properties>
+            <property name="indent" value="4"/>
+            <property name="tabIndent" value="true"/>
+        </properties>
+    </rule>
+
+    <!-- Require proper docblocks -->
+    <rule ref="Squiz.Commenting.FunctionComment">
+        <exclude name="Squiz.Commenting.FunctionComment.MissingParamTag"/>
+        <exclude name="Squiz.Commenting.FunctionComment.ParamCommentFullStop"/>
+        <exclude name="Squiz.Commenting.FunctionComment.SpacingAfterParamType"/>
+    </rule>
+
+    <!-- Check for unused variables -->
+    <rule ref="Generic.CodeAnalysis.UnusedFunctionParameter"/>
+    <rule ref="Generic.CodeAnalysis.EmptyStatement"/>
+
+    <!-- Show progress while running -->
+    <arg value="p"/>
+
+    <!-- Show sniff codes in all reports -->
+    <arg value="s"/>
+
+    <!-- Use colors in output -->
+    <arg name="colors"/>
+
+    <!-- Only check PHP files -->
+    <arg name="extensions" value="php"/>
+
+    <!-- Parallel processing -->
+    <arg name="parallel" value="8"/>
+</ruleset>

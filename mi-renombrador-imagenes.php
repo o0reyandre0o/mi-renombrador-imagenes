@@ -1,4 +1,4 @@
-<?php
+<?php 
 /**
  * Plugin Name:          Toc Toc SEO Images
  * Plugin URI:           https://toctoc.ky/
